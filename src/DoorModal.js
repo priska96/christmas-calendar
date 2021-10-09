@@ -12,7 +12,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
-  bgcolor: "background.paper",
+  bgcolor: "rgba(255,255,255,0.7)",
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
@@ -20,9 +20,11 @@ const style = {
 };
 
 const gifts = {
-  1: { title: "Hi", content: "<333" },
-  2: { title: "I love you", content: "love" },
-  3: { title: "annyeong", content: "kiss" }
+  0: { title: "야! 속이지마!", content: "좀만 참아라~~", type: "text" },
+  1: { title: "Hi", content: "<333", type: "text" },
+  2: { title: "I love you", content: "love", type: "text" },
+  3: { title: "Coupon", content: "./snack-coupon.png", type: "img" },
+  24: { title: "Movie Coupon", content: "./24-movie-coupon.png", type: "img" }
 };
 
 function DoorModal(props) {
@@ -32,6 +34,19 @@ function DoorModal(props) {
     setOpen(props.doorModal);
   }, [props.doorModal, open]);
 
+  function content(gift) {
+    if (gift.type === "text") {
+      return (
+        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          {gift.content}
+        </Typography>
+      );
+    } else if (gift.type === "img") {
+      return (
+        <img id="modal-modal-description" src={gift.content} alt={gift.title} />
+      );
+    }
+  }
   return (
     <Modal
       open={open}
@@ -45,11 +60,9 @@ function DoorModal(props) {
             ? gifts[id].title
             : "Title"}
         </Typography>
-        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          {Object.keys(gifts).includes(id.toString())
-            ? gifts[id].content
-            : "Content"}
-        </Typography>
+        {Object.keys(gifts).includes(id.toString())
+          ? content(gifts[id])
+          : "Content"}
       </Box>
     </Modal>
   );
