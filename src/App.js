@@ -4,6 +4,7 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
 import { makeStyles } from "@mui/styles";
 import DoorModal from "./DoorModal";
 import { connect } from "react-redux";
@@ -22,8 +23,8 @@ const useStyles = makeStyles({
     display: "flex",
     minHeight: "100%",
     width: "100%",
-    boxShadow: "none !important",
-    borderColor: "transparent !important",
+    backgroundColor: "transparent !important",
+    padding: "0 !important",
     "&:hover .door": {
       borderColor: "#385052"
     }
@@ -42,9 +43,11 @@ function App(props) {
   const [opened, setOpened] = React.useState(0);
 
   return (
-    <div className="App">
-      <h1>메리 크리스마스</h1>
-      <h2>자기야~~ 이 크리스마스 달력을 즐기길 {"<"}3</h2>
+    <Container className="App">
+      <Container>
+        <h1>메리 크리스마스</h1>
+        <h2>자기야~~ 이 크리스마스 달력을 즐기길 {"<"}3</h2>
+      </Container>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           {props.doorNumbers.map((day) => {
@@ -53,6 +56,16 @@ function App(props) {
                 <Item
                   className={classes.doorItem}
                   onClick={() => {
+                    const today = new Date().getDate();
+                    console.log(today);
+                    if (today < day) {
+                      if (props.doors.includes(day)) {
+                        props.closeDoor(day);
+                      }
+                      props.openDoor(0);
+                      setOpened(0);
+                      return;
+                    }
                     if (props.doors.includes(day)) {
                       props.closeDoor(day);
                     } else {
@@ -78,7 +91,7 @@ function App(props) {
         </Grid>
       </Box>
       <DoorModal id={opened} />
-    </div>
+    </Container>
   );
 }
 
