@@ -1,4 +1,4 @@
-import { OPEN, CLOSE, CLOSEMODAL } from "./counter.types";
+import { OPEN, CLOSE, CLOSEMODAL, LIGHTCANDLE } from "./counter.types";
 function shuffle(array) {
   let currentIndex = array.length,
     randomIndex;
@@ -21,6 +21,7 @@ function shuffle(array) {
 const INITIAL_STATE = {
   doors: [],
   doorModal: false,
+  candles: [1],
   numbers: shuffle([
     1,
     2,
@@ -77,13 +78,19 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         doorModal: false
       };
+    case LIGHTCANDLE:
+      return {
+        ...state,
+        candles: [...state.candles, action.payload]
+      };
 
     default:
       if (action.payload && Object.keys(action.payload).includes("doors")) {
         return {
           ...state,
           doors: action.payload.doors.doors,
-          doorModal: false
+          doorModal: false,
+          candles: action.payload.doors.candles
         };
       }
       return state;
