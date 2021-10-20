@@ -1,4 +1,4 @@
-import { OPEN, CLOSE, CLOSEMODAL } from "./counter.types";
+import { OPEN, CLOSE, CLOSEMODAL, LIGHTCANDLE } from "./counter.types";
 
 export const openDoor = (day = 0) => {
   return {
@@ -18,5 +18,11 @@ export const closeDoorModal = (open = false) => {
   return {
     type: CLOSEMODAL,
     payload: open
+  };
+};
+export const lightCandle = (light = 1) => {
+  return {
+    type: LIGHTCANDLE,
+    payload: light
   };
 };
