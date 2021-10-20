@@ -54,6 +54,12 @@ body {
   transform: rotateY(180deg);
 }
 
-img#modal-modal-description {
+img#modal-modal-description,
+img.advent {
   max-width: 100%;
+  border: 0 !important;
+}
+.MuiBox-root:focus-visible {
+  border: 0;
+  outline: 0;
 }

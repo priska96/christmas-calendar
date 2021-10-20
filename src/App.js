@@ -12,8 +12,8 @@ import { connect } from "react-redux";
 import { openDoor, closeDoor } from "./redux/Counter/counter.actions";
 
 const useStyles = makeStyles({
-  root: {
-    //backgroundColor: "red",
+  titleContainer: {
+    width: "70%"
   },
   doorItem: {
     height: "130px",
@@ -44,7 +44,7 @@ function App(props) {
 
   return (
     <Container className="App">
-      <Container>
+      <Container className={classes.titleContainer}>
         <h1>메리 크리스마스</h1>
         <h2>자기야~~ 이 크리스마스 달력을 즐기길 {"<"}3</h2>
       </Container>
@@ -52,12 +52,11 @@ function App(props) {
         <Grid container spacing={2}>
           {props.doorNumbers.map((day) => {
             return (
-              <Grid className={classes.root} key={day} item xs={4}>
+              <Grid key={day} item xs={4}>
                 <Item
                   className={classes.doorItem}
                   onClick={() => {
-                    const today = new Date().getDate();
-                    console.log(today);
+                    /* const today = new Date().getDate();
                     if (today < day) {
                       if (props.doors.includes(day)) {
                         props.closeDoor(day);
@@ -65,7 +64,7 @@ function App(props) {
                       props.openDoor(0);
                       setOpened(0);
                       return;
-                    }
+                    } */
                     if (props.doors.includes(day)) {
                       props.closeDoor(day);
                     } else {
