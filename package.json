@@ -1,7 +1,7 @@
 {
-  "name": "Christmas Calendar",
+  "name": "christmas-calendar",
   "version": "1.0.0",
-  "description": "Jihoon's Christmas Calendar",
+  "description": "jihoons christmas calendar",
   "homepage": "http://priska96.github.io/christmas-calendar",
   "keywords": ["react", "starter"],
   "main": "src/index.js",
