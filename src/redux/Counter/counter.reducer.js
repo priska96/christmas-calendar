@@ -89,8 +89,8 @@ const reducer = (state = INITIAL_STATE, action) => {
         return {
           ...state,
           doors: action.payload.doors.doors,
-          doorModal: false,
-          candles: action.payload.doors.candles
+          doorModal: false
+          //candles: action.payload.doors.candles
         };
       }
       return state;
