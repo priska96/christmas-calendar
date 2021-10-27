@@ -156,7 +156,11 @@ const gifts = {
     id: 16,
     type: "mp3"
   },
-  17: { title: "", content: "", type: "" },
+  17: {
+    title: "Bible Verses - Just something to read",
+    content: "./bible-verses-red-2.png",
+    type: "img"
+  },
   18: {
     title: "내 눈엔",
     subtitle: "Unknown",

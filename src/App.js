@@ -56,15 +56,15 @@ function App(props) {
                 <Item
                   className={classes.doorItem}
                   onClick={() => {
-                    /* const today = new Date().getDate();
-                    if (today < day) {
+                    const today = new Date();
+                    if (today.getDate() < day && today.getMonth() !== 12) {
                       if (props.doors.includes(day)) {
                         props.closeDoor(day);
                       }
                       props.openDoor(0);
                       setOpened(0);
                       return;
-                    } */
+                    }
                     if (props.doors.includes(day)) {
                       props.closeDoor(day);
                     } else {
