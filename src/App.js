@@ -45,8 +45,10 @@ function App(props) {
   return (
     <Container className="App">
       <Container className={classes.titleContainer}>
-        <h1>메리 크리스마스</h1>
-        <h2>자기야~~ 이 크리스마스 달력을 즐기길 {"<"}3</h2>
+        <h1>메리 크리스마스 자기야</h1>
+        <h3>
+          I hope you enjoy Christmas Season with this Advent Calendar {"<"}3
+        </h3>
       </Container>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
@@ -56,15 +58,16 @@ function App(props) {
                 <Item
                   className={classes.doorItem}
                   onClick={() => {
-                    /* const today = new Date().getDate();
-                    if (today < day) {
+                    const today = new Date();
+                    console.log(today.getMonth());
+                    if (today.getDate() < day && today.getMonth() !== 11) {
                       if (props.doors.includes(day)) {
                         props.closeDoor(day);
                       }
                       props.openDoor(0);
                       setOpened(0);
                       return;
-                    } */
+                    }
                     if (props.doors.includes(day)) {
                       props.closeDoor(day);
                     } else {

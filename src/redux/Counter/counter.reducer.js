@@ -51,14 +51,14 @@ const INITIAL_STATE = {
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
-  console.log(
+  /*console.log(
     "action",
     action,
     "payload",
     action.payload,
     "doors",
     state.doors
-  );
+  );*/
   switch (action.type) {
     case OPEN:
       return {
