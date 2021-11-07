@@ -2,7 +2,7 @@
   "name": "christmas-calendar",
   "version": "1.0.0",
   "description": "jihoons christmas calendar",
-  "homepage": "http://priska96.github.io/christmas-calendar",
+  "homepage": "https://priska96.github.io/christmas-calendar",
   "keywords": ["react", "starter"],
   "main": "src/index.js",
   "dependencies": {
