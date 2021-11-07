@@ -64,7 +64,7 @@ const styleAdvent = {
 };
 
 const gifts = {
-  0: { title: "야! 속이지마!", content: "좀만 참아라~~", type: "text" },
+  0: { title: "야! 멈춰!", content: "조금만 기다려~~", type: "text" },
   1: {
     title: "My Only Wish This Year",
     subtitle: "© Britney Spears",
