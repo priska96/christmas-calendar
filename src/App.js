@@ -60,14 +60,14 @@ function App(props) {
                   onClick={() => {
                     const today = new Date();
                     console.log(today.getMonth());
-                    /*if (today.getDate() < day && today.getMonth() !== 11) {
+                    if (today.getDate() < day && today.getMonth() !== 11) {
                       if (props.doors.includes(day)) {
                         props.closeDoor(day);
                       }
                       props.openDoor(0);
                       setOpened(0);
                       return;
-                    }*/
+                    }
                     if (props.doors.includes(day)) {
                       props.closeDoor(day);
                     } else {
